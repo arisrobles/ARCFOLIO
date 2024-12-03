@@ -308,18 +308,30 @@ header.sticky {
 .social-icon {
     margin-right: 15px;
     margin-bottom: 10px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px) rotate(-45deg); /* Start position with rotation */
+    transition: transform 0.8s ease, opacity 0.8s ease; /* Smooth animation */
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.3) rotate(15deg); /* Slightly enlarge with a subtle tilt */
+    filter: drop-shadow(0px 0px 10px rgba(0, 255, 255, 0.8)); /* Add a glowing effect */
+    animation: bounce 0.4s ease infinite alternate; /* Add a bounce animation */
 }
 
 .social-icon.in-view {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Fade in */
+    transform: translateY(0) rotate(0deg); /* Reset position and rotation */
+}
+
+/* Keyframes for bounce effect */
+@keyframes bounce {
+    0% {
+        transform: translateY(0) scale(1.3) rotate(15deg);
+    }
+    100% {
+        transform: translateY(-5px) scale(1.3) rotate(15deg);
+    }
 }
 
 /* Animation Effects */
@@ -360,6 +372,274 @@ header.sticky {
         transform: scale(1);
     }
 }
+
+.cards {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.cards.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: #111; /* Dark background */
+    color: #fff; /* White text */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.projects-section .highlight {
+    color: #82f482; /* Highlight color */
+}
+
+/* Individual Project Container */
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    gap: 80px; /* Space between logo and details */
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Slightly below the viewport */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth effect */
+}
+
+/* Logo Styling */
+.project-logo img {
+    max-width: 600px; /* Adjust logo size */
+    height: auto;
+    flex: 0 0 300px; /* Fixed width for logo */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9; /* Slight transparency */
+}
+
+/* Project Details Styling */
+.project-details {
+    text-align: left;
+    max-width: 500px; /* Restrict text width */
+    flex: 1; /* Take remaining space */
+}
+
+.project-details h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ffffff; /* Highlighted color for title */
+}
+
+.project-details h3:hover {
+    cursor: pointer;
+    color: #82f482; 
+}
+
+.project-details p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc; /* Lighter text for description */
+}
+
+.project.animate {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+/* Fade-in and scale up */
+[data-animate="fade-in-scale"].animate {
+    opacity: 1;
+    transform: translateY(0) scale(1.05); /* Slight scale-up effect */
+}
+
+/* Slide-in from bottom */
+[data-animate="slide-in-bottom"].animate {
+    opacity: 1;
+    transform: translateY(0); /* Reset position to original */
+}
+
+[data-animate="slide-in-bottom"] {
+    transform: translateY(50px); /* Start from below */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .project {
+        flex-direction: column; /* Stack on smaller screens */
+        text-align: center; /* Center align content */
+        gap: 20px; /* Reduced gap for mobile screens */
+    }
+
+    .project-logo img {
+        max-width: 300px; /* Smaller logo on mobile */
+    }
+
+    .project-details {
+      
+        max-width: 100%; /* Use full width */
+    }
+
+    .project-details p {
+        font-size: 14px;
+
+    }
+    
+    .project-details h3 {
+        font-size: 20px;
+    }
+}
+.more-projects-btn {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.more-projects-btn .btn {
+    background-color: transparent;
+    color: #a6a6a6;
+    border: 2px solid #a6a6a6;
+    padding: 12px 24px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.more-projects-btn .btn:hover {
+    color: #fff;
+    background-color: #000000;
+    border-color: #fff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .more-projects-btn .btn {
+        font-size: 0.9rem; /* Slightly smaller font on smaller screens */
+        padding: 10px 20px; /* Adjust padding for mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .more-projects-btn .btn {
+        font-size: 0.8rem; /* Smaller font for extra small screens */
+        padding: 8px 16px; /* Smaller padding */
+    }
+}
+
+.services {
+  text-align: center;
+  padding: 2rem;
+}
+
+.services-title {
+  font-size: 1rem;
+  color: #999999;
+  margin-bottom: 1.5rem;
+}
+
+.services-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.services-subtitle span {
+  color: #a4e01c; /* Accent color */
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 1.5rem;
+  max-width: 950px; /* Slightly increase the overall width of the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+.service-item {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  width: 100%; /* Adjust width to be flexible */
+  max-width: 450px; /* Limit card width */
+  margin: 0 auto; /* Center each card */
+  display: flex; /* Flexbox for layout */
+  flex-direction: row; /* Align content horizontally */
+  align-items: center; /* Vertically center items */
+  text-align: left; /* Align text to the left */
+}
+
+.service-item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #a4e01c; /* Border color on hover */
+}
+
+.service-item h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.service-item p {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin: 0; /* Remove extra spacing */
+}
+
+.service-number {
+  font-size: 2rem; /* Larger font size for numbers */
+  font-weight: bold;
+  color: #a4e01c; /* Accent color */
+  margin-right: 1.5rem; /* Space between number and text */
+  flex-shrink: 0; /* Prevent number from shrinking */
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column; /* Stack title and description vertically */
+  justify-content: center; /* Vertically center content */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* One card per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 0.9rem; /* Slightly smaller text for very small screens */
+  }
+
+  .services-subtitle {
+    font-size: 1.5rem; /* Adjust subtitle size */
+  }
+
+  .service-item {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .service-item h4 {
+    font-size: 1rem; /* Reduce font size for titles */
+  }
+
+  .service-item p {
+    font-size: 0.8rem; /* Reduce font size for descriptions */
+  }
+}
+
 </style>
 <body>
     <header class="navbar navbar-expand-lg navbar-dark">
@@ -375,9 +655,9 @@ header.sticky {
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -403,11 +683,11 @@ header.sticky {
     <!-- Stats Section -->
     <div class="stats">
         <div class="stat-item">
-            <div class="stat-number" data-target="5" data-symbol="+">0</div>
+            <div class="stat-number" data-target="2" data-symbol="+">0</div>
             <div class="stat-text">Years of Experience</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number" data-target="30" data-symbol="+">0</div>
+            <div class="stat-number" data-target="4" data-symbol="+">0</div>
             <div class="stat-text">Projects Completed</div>
         </div>
         <div class="stat-item">
@@ -417,7 +697,7 @@ header.sticky {
     </div>
 
     <section id="about" class="container-fluid px-5 py-5 section">
-        <h2 class="text-left mb-4" style="color: #a6a6a6;  font-size: calc(0.5rem + 1vw);;">About Me</h2>
+        <h2 class="text-left mb-4" style="color: #a6a6a6;  font-size: calc(1rem + 1vw);">About Me</h2>
         <div class="row">
             <div class="col-md-6">
                 <p style="font-size: calc(1rem + 0.2vw); color: #d1d1d1;">
@@ -451,7 +731,7 @@ header.sticky {
                     <img src="/assets/designs/heart.png" alt="Web Development" class="img-fluid mb-3 mb-md-0 heart-image" style="max-width: 50%; height: auto;">
                     <div class="ml-md-4 text-center text-md-left">
                         <h4 style="color: #2cb32c;">My Journey</h4>
-                        <p style="color: #d1d1d1;">
+                        <p style="color: #d1d1d1; text-align: justify;">
                             My fascination with technology began early, leading me to explore web development and design. With a solid foundation in HTML, CSS, and JavaScript, I focus on creating responsive and accessible web applications that enhance user experience. Each project I undertake not only sharpens my technical skills but also deepens my understanding of user-centric design.
                         </p>
                         <a href="#portfolio" class="btn btn-outline-light mt-3" style="font-size: calc(0.9rem + 0.2vw);">
@@ -473,7 +753,7 @@ header.sticky {
 
     <!--Skills Section-->
     <section id="skills" class="container-fluid px-5 py-5">
-        <h2 class="text-left mb-4" style="color: #a6a6a6; font-size: calc(0.5rem + 1vw);">My Skills</h2>
+        <h2 class="text-left mb-4" style="color: #a6a6a6; font-size: calc(1rem + 1vw);">My Skills</h2>
         <div class="row">
             <!-- First column for introduction and description with fixed width -->
             <div class="col-md-6">
@@ -521,7 +801,7 @@ header.sticky {
                     <!-- Skill Cards -->
                     <!-- HTML5 -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Structure and Content">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Structure and Content">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/html5.png" alt="HTML5" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">HTML5</h5>
@@ -534,7 +814,7 @@ header.sticky {
                     </div>
                     <!-- CSS3 -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Styling and Layout">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Styling and Layout">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/css3.png" alt="CSS3" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">CSS3</h5>
@@ -547,7 +827,7 @@ header.sticky {
                     </div>
                     <!-- JavaScript -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Interactivity and Logic">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Interactivity and Logic">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/javascript.png" alt="JavaScript" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">JavaScript</h5>
@@ -560,7 +840,7 @@ header.sticky {
                     </div>
                     <!-- React -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Building UI Components">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Development: Building UI Components">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/react.png" alt="React" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">React</h5>
@@ -573,7 +853,7 @@ header.sticky {
                     </div>
                     <!-- Node.js -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Back-end Development: Server-side Programming">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Back-end Development: Server-side Programming">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/node.png" alt="Node.js" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">Node.js</h5>
@@ -586,7 +866,7 @@ header.sticky {
                     </div>
                     <!-- MySQL -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Database Management: Relational Database">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Database Management: Relational Database">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/mysql.png" alt="MySQL" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">MySQL</h5>
@@ -599,7 +879,7 @@ header.sticky {
                     </div>
                     <!-- SQL -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Database Management: Structured Query Language">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Database Management: Structured Query Language">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/sqlite.png" alt="SQL" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">SQL</h5>
@@ -612,7 +892,7 @@ header.sticky {
                     </div>
                     <!-- Bootstrap -->
                     <div class="col-6 col-sm-6 col-md-3 mb-4 d-flex justify-content-center">
-                        <div class="card" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Framework: Responsive Layout and Components">
+                        <div class="card cards" style="height: 300px; display: flex; flex-direction: column; color: #ffffff; background-color: #1a1a1a; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2);" data-bs-toggle="tooltip" title="Front-end Framework: Responsive Layout and Components">
                             <div class="card-body d-flex flex-column align-items-center justify-content-between" style="padding: 10px;">
                                 <img src="/assets/skills/bootstrap.png" alt="Bootstrap" class="card-img-top mb-3" style="max-width: 70%; height: auto; margin: auto;">
                                 <h5 class="card-title mb-3">Bootstrap</h5>
@@ -626,9 +906,96 @@ header.sticky {
                 </div>
             </div>
         </div>
-    </section>    
-    
+    </section>   
 
+    <section class="services" id="services">
+        <h2 class="services-title" style="color: #a6a6a6; font-size: calc(1rem + 1vw);">My Services</h2>
+        <h3 class="services-subtitle">Expert <span>Web Development</span> Services Tailored To Your Business</h3>
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-number">01.</div>
+                <div class="service-content">
+                    <h4>Website Building</h4>
+                    <p>Custom-built websites tailored to your business needs with a focus on functionality and design.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-number">02.</div>
+                <div class="service-content">
+                    <h4>Portfolio Creation</h4>
+                    <p>Designing and developing professional portfolios to showcase your work and achievements.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-number">03.</div>
+                <div class="service-content">
+                    <h4>Search Engine Optimization (SEO)</h4>
+                    <p>Optimizing your website to rank higher on search engines and increase organic traffic.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-number">04.</div>
+                <div class="service-content">
+                    <h4>Website Maintenance</h4>
+                    <p>Ongoing website updates, performance monitoring, and bug fixes to keep your site running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <section id="projects" class="projects-section">
+        <h2 style="color: #a6a6a6; font-size: calc(1rem + 1vw);">My <span class="highlight">Projects</span></h2>
+        
+        <!-- Project 1: PetConnect -->
+        <div class="project" data-animate="fade-in-scale">
+            <div class="project-logo">
+                <img src="/assets/projects/PetConnect_Logo.png" alt="PetConnect Logo">
+            </div>
+            <div class="project-details">
+                <h3>PetConnect</h3>
+                <p>Developed an innovative platform to connect pet owners, adopters, shelters, and veterinary clinics, streamlining pet adoption and responsible ownership.</p>
+            </div>
+        </div>
+        
+        <!-- Project 2: FoundMate -->
+        <div class="project reversed" data-animate="slide-in-bottom">
+            <div class="project-details">
+                <h3>FoundMate</h3>
+                <p>Developed a user-friendly Lost and Found platform tailored for university campuses, helping students and staff recover misplaced items efficiently.</p>
+            </div>
+            <div class="project-logo">
+                <img src="/assets/projects/foundmate.png" alt="FoundMate Logo">
+            </div>
+        </div>
+    
+        <!-- Project 3: Kraze -->
+        <div class="project" data-animate="fade-in-scale">
+            <div class="project-logo">
+                <img src="/assets/projects/Kraze_Logo.png" alt="Kraze Logo">
+            </div>
+            <div class="project-details">
+                <h3>Kraze</h3>
+                <p>Developed a website for Kdrama enthusiasts, offering recommendations, reviews, and community engagement features for Kdrama lovers.</p>
+            </div>
+        </div>
+    
+        <!-- Project 4: CarGo -->
+        <div class="project reversed" data-animate="slide-in-bottom">
+            <div class="project-details">
+                <h3>CarGo</h3>
+                <p>Developed an efficient car rental management system, offering seamless booking, management, and payment options for customers and car rental services.</p>
+            </div>
+            <div class="project-logo">
+                <img src="/assets/projects/Cargo.png" alt="CarGo Logo">
+            </div>
+        </div>
+    
+        <div class="more-projects-btn mt-4">
+            <a href="#projects" class="btn btn-outline-light">View More Projects.</a>
+        </div>
+    </section>
+    
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
     // Select all sections that need to animate
@@ -654,20 +1021,20 @@ header.sticky {
     </script>
     <script>
         // Create an intersection observer to detect when the social icons come into view
+        document.addEventListener("DOMContentLoaded", () => {
         const socialIcons = document.querySelectorAll('.social-icon');
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view'); // Add the 'in-view' class when the element is in view
-                    observer.unobserve(entry.target); // Stop observing the element after it's in view
+                    entry.target.classList.add('in-view'); // Add 'in-view' class
+                    observer.unobserve(entry.target); // Stop observing
                 }
             });
-        }, { threshold: 0.5 }); // Trigger when 50% of the element is in view
+        }, { threshold: 0.3 }); // Trigger when 30% of the element is visible
 
-        socialIcons.forEach(icon => {
-            observer.observe(icon);
-        });
+        socialIcons.forEach(icon => observer.observe(icon));
+    });
 
         // Function to animate counting with symbols and slower finish
         const animateCount = (element) => {
@@ -749,5 +1116,39 @@ header.sticky {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".card");
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target); // Stop observing once the animation is applied
+                }
+            });
+        }, { threshold: 0.2 });
+
+        cards.forEach(card => observer.observe(card));
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const projects = document.querySelectorAll(".project");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate"); // Add animation class
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    });
+
+    projects.forEach((project) => observer.observe(project));
+});
+
+</script>
+
 </body>
 </html>
