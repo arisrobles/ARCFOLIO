@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="assets/logo/arc.jpg" type="image/x-icon">
 </head>
 <style>
@@ -683,6 +684,116 @@ footer .bi-arrow-up-short {
   color: #fff; /* White */
 }
 
+/* Testimonials Section */
+.testimonials-section {
+    background-color: #111;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.testimonials-info {
+    margin-bottom: 20px;
+}
+
+.testimonials-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.testimonials-subtitle {
+    font-size: 1.5rem;
+    color: #00FF00; /* Green highlight */
+    margin-bottom: 10px;
+}
+
+.testimonials-description {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Testimonial Item */
+.testimonial-item {
+    text-align: center;
+}
+
+.testimonial-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.testimonial-quote {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 15px 0;
+    font-style: italic;
+}
+
+.testimonial-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.testimonial-role {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* Carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #171717; /* Green controls */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Position arrows outside the carousel */
+.carousel-control-prev {
+    left: -60px; /* Push arrow to the left */
+}
+
+.carousel-control-next {
+    right: -60px; /* Push arrow to the right */
+}
+
+/* Adjust arrow position and size for smaller screens */
+@media (max-width: 768px) {
+    .carousel-control-prev {
+        left: -40px; /* Adjust position for smaller screens */
+    }
+
+    .carousel-control-next {
+        right: -40px; /* Adjust position for smaller screens */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 30px; /* Reduce arrow size */
+        height: 30px; /* Reduce arrow size */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .carousel-control-prev {
+        left: -30px; /* Adjust further for very small screens */
+    }
+
+    .carousel-control-next {
+        right: -30px; /* Adjust further for very small screens */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 25px; /* Reduce arrow size */
+        height: 25px; /* Reduce arrow size */
+    }
+}
 </style>
 <body>
     <header class="navbar navbar-expand-lg navbar-dark">
@@ -727,7 +838,7 @@ footer .bi-arrow-up-short {
     <!-- Stats Section -->
     <div class="stats">
         <div class="stat-item">
-            <div class="stat-number" data-target="2" data-symbol="+">0</div>
+            <div class="stat-number" data-target="0" data-symbol="+">0</div>
             <div class="stat-text">Years of Experience</div>
         </div>
         <div class="stat-item">
@@ -754,7 +865,7 @@ footer .bi-arrow-up-short {
                     <div class="col-md-6">
                         <div class="card" style="background-color: transparent; border: none;">
                             <div class="card-body">
-                                <h4 class="card-title" style="display: flex; align-items: center; font-size: calc(1rem + 0.5vw);">
+                                <h4 class="card-title" style="display: flex; align-items: center; font-size: calc(1rem + 0.5vw); color: #ffffff;">
                                     <span style="color: #28a745; margin-right: 10px; font-size: xx-large; font-weight: bolder;">✓</span> Front-end Development: HTML5, CSS3, JavaScript, React
                                 </h4>
                             </div>
@@ -764,7 +875,7 @@ footer .bi-arrow-up-short {
                     <div class="col-md-6" style="margin-top: 20px;">
                         <div class="card" style="background-color: transparent; border: none;">
                             <div class="card-body">
-                                <h4 class="card-title" style="display: flex; align-items: center; font-size: calc(1rem + 0.5vw);">
+                                <h4 class="card-title" style="display: flex; align-items: center; font-size: calc(1rem + 0.5vw);  color: #ffffff">
                                     <span style="color: #28a745; margin-right: 10px; font-size: xx-large; font-weight: bolder;">✓</span> Back-end Development: API Integration, MySQL, SQLite
                                 </h4>                              
                             </div>
@@ -1038,6 +1149,68 @@ footer .bi-arrow-up-short {
             <a href="#projects" class="btn btn-outline-light">View More Projects.</a>
         </div>
     </section>
+
+    
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="row">
+             
+                <div class="col-md-6 testimonials-info">
+                    <h2 class="testimonials-title">Clients Testimonials</h2>
+                    <h4 class="testimonials-subtitle">Valued Feedback</h4>
+                    <p class="testimonials-description">Hear what our esteemed clients have to say about our services.</p>
+                </div>
+    
+               
+                <div class="col-md-6">
+                    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          
+                            <div class="carousel-item active">
+                                <div class="testimonial-item text-center">
+                                    <img src="assets/logo/about1.jpg" alt="Cherie May Galido" class="testimonial-img mb-3">
+                                    <p class="testimonial-quote">"The portfolio website created by Ariston was exceptional. The design was modern, and the user experience was seamless. It has significantly helped me showcase my work in a professional manner."</p>
+                                    <h4 class="testimonial-name">Cherie May Galido</h4>
+                                    <p class="testimonial-role">Client</p>
+                                </div>
+                            </div>
+                        
+                           
+                            <div class="carousel-item">
+                                <div class="testimonial-item text-center">
+                                    <img src="assets/logo/about.jpg" alt="Gerardo Dela Cruz" class="testimonial-img mb-3">
+                                    <p class="testimonial-quote">"Ariston's work on the PetConnect platform has been outstanding. The system has made pet adoption and management much more efficient. It’s an incredible tool for both adopters and shelters."</p>
+                                    <h4 class="testimonial-name">Engr. Gerardo "Gary" Dela Cruz</h4>
+                                    <p class="testimonial-role">Manager, M7 IT Solutions</p>
+                                </div>
+                            </div>
+                        
+                          
+                            <div class="carousel-item">
+                                <div class="testimonial-item text-center">
+                                    <img src="assets/logo/aris.png" alt="John Doe" class="testimonial-img mb-3">
+                                    <p class="testimonial-quote">"The Cargo management system developed by Ariston has streamlined our logistics processes. The system is user-friendly, fast, and highly reliable for managing our shipments and inventory."</p>
+                                    <h4 class="testimonial-name">John Doe</h4>
+                                    <p class="testimonial-role">CEO, Web Solutions Inc.</p>
+                                </div>
+                            </div>
+                        </div>                        
+    
+                       
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     
     <footer id="contact" class="py-5 section" style="background-color: #000000; color: #ccc;">
         <div class="container">
@@ -1086,8 +1259,9 @@ footer .bi-arrow-up-short {
       
           <div class="text-center mt-4">
             <p class="mb-0">
-              Copyright @2024, <span class="text-success">ARCFOLIO</span> All Rights Reserved.
-            </p>
+                <span>&copy;</span> 2024, <span class="text-success">ARCFOLIO</span> All Rights Reserved.
+              </p>
+              
           </div>
         </div>
       </footer>
@@ -1204,6 +1378,9 @@ footer .bi-arrow-up-short {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Initialize Tooltips -->
     <script>
